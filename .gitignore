@@ -5,3 +5,5 @@
 /secrets.yaml
 */__pycache__/
 *.pyc
+messages_poweron_RX_display.txt
+messages_poweron_TX_mainboard.txt
