@@ -20,14 +20,12 @@ namespace esphome
                 {
                     if (power_trip_count_ >= MAX_POWER_TRIP_COUNT)
                     {
-                        //should_power_trip_ = false;
+                        should_power_trip_ = false;
                         power_trip_count_ = 0;
-                        power_trip_delay_ += 5;
+                        power_trip_delay_ += 50;
                         ESP_LOGE(TAG, "Power tripping display failed! Trying again");
                         return;
                     }
-                    mainboard_uart_->write_array(command_power_with_cleaning);
-                    mainboard_uart_->flush();
                     // Perform power trip (invert state twice)
                     power_pin_->digital_write(!(*initial_state_));
                     delay(power_trip_delay_);
