@@ -20,8 +20,9 @@ namespace esphome
                 {
                     if (power_trip_count_ >= MAX_POWER_TRIP_COUNT)
                     {
-                        should_power_trip_ = false;
-                        ESP_LOGE(TAG, "Power tripping display failed!");
+                        //should_power_trip_ = false;
+                        power_trip_delay_ += 5;
+                        ESP_LOGE(TAG, "Power tripping display failed! Trying again");
                         return;
                     }
 
