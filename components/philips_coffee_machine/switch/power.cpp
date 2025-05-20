@@ -24,7 +24,7 @@ namespace esphome
                         power_trip_count_ = 0;
                         power_trip_delay_ += 5;
                         ESP_LOGE(TAG, "Power tripping display failed! Trying again");
-                        return;
+                        break;
                     }
 
                     // Perform power trip (invert state twice)
