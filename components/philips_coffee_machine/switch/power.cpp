@@ -26,6 +26,8 @@ namespace esphome
                         ESP_LOGE(TAG, "Power tripping display failed! Trying again");
                         return;
                     }
+                    mainboard_uart_->write_array(command_pre_power_on);
+                    mainboard_uart_->write_array(command_power_with_cleaning);
 
                     // Perform power trip (invert state twice)
                     power_pin_->digital_write(!(*initial_state_));
@@ -41,7 +43,6 @@ namespace esphome
             {
                 if (state)
                 {
-                    ESP_LOGE(TAG, "in state");
                     // Send pre-power on message
                     for (unsigned int i = 0; i <= power_message_repetitions_; i++)
                         mainboard_uart_->write_array(command_pre_power_on);
