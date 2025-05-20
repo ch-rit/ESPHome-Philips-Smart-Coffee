@@ -26,7 +26,6 @@ namespace esphome
                         ESP_LOGE(TAG, "Power tripping display failed! Trying again");
                         return;
                     }
-                    mainboard_uart_->write_array(command_pre_power_on);
                     mainboard_uart_->write_array(command_power_with_cleaning);
                     mainboard_uart_->flush();
                     // Perform power trip (invert state twice)
