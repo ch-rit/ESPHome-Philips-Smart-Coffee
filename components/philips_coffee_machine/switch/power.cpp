@@ -20,10 +20,11 @@ namespace esphome
                 {
                     if (power_trip_count_ >= MAX_POWER_TRIP_COUNT)
                     {
-                        //should_power_trip_ = false;
+                        should_power_trip_ = false;
+                        power_trip_count_ = 0;
                         power_trip_delay_ += 5;
                         ESP_LOGE(TAG, "Power tripping display failed! Trying again");
-                        return;
+                        continue;
                     }
 
                     // Perform power trip (invert state twice)
