@@ -28,7 +28,7 @@ namespace esphome
                     }
                     mainboard_uart_->write_array(command_pre_power_on);
                     mainboard_uart_->write_array(command_power_with_cleaning);
-
+                    mainboard_uart_->flush();
                     // Perform power trip (invert state twice)
                     power_pin_->digital_write(!(*initial_state_));
                     delay(power_trip_delay_);
