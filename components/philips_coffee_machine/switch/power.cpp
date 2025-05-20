@@ -41,6 +41,7 @@ namespace esphome
             {
                 if (state)
                 {
+                    ESP_LOGE(TAG, "in state");
                     // Send pre-power on message
                     for (unsigned int i = 0; i <= power_message_repetitions_; i++)
                         mainboard_uart_->write_array(command_pre_power_on);
